@@ -1,6 +1,8 @@
 {
-  "name": "tanstack-is-queen",
-  "compatibility_date": "2025-09-24",
-  "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": "dist/client"
+  "name": "keysha-is-queen",
+  "compatibility_date": "2024-04-26",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "pages_build_output_dir": "./dist/client"
 }
