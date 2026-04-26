@@ -1,0 +1,222 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================
+   COMFORT NOOK — Design System
+   Pastel, cozy, gentle for someone who needs a soft landing.
+   All colors in oklch. Tokens drive everything.
+   ========================================================= */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Comfort palette */
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
+  --color-cream: var(--cream);
+  --color-sky: var(--sky);
+  --color-mint: var(--mint);
+  --color-lavender: var(--lavender);
+  --color-butter: var(--butter);
+
+  --font-display: "Quicksand", "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-bounce-soft: bounce-soft 2.4s ease-in-out infinite;
+  --animate-pop-in: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-wiggle: wiggle 1.6s ease-in-out infinite;
+  --animate-heart-burst: heart-burst 0.7s ease-out forwards;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-page-in: page-in 0.4s ease-out;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes bounce-soft {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.04); }
+  }
+  @keyframes pop-in {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  @keyframes heart-burst {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%, -150%) scale(1.4); opacity: 0; }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes page-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Pet melompat — naik turun sebentar */
+  @keyframes pet-jump-kf {
+    0%   { transform: translateY(0); }
+    40%  { transform: translateY(-38px); }
+    60%  { transform: translateY(-38px); }
+    100% { transform: translateY(0); }
+  }
+  /* Pelukan: muncul dari bawah, scale-up, sedikit goyang */
+  @keyframes hug-in {
+    0%   { transform: translate(-50%, 40%) scale(0.4); opacity: 0; }
+    60%  { transform: translate(-50%, -10%) scale(1.1); opacity: 1; }
+    100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+  }
+  /* Tangan elus-elus: bolak-balik kanan kiri lembut */
+  @keyframes pat {
+    0%, 100% { transform: translate(-50%, 0) rotate(-12deg); }
+    50%      { transform: translate(-50%, 0) rotate(12deg); }
+  }
+  /* Cubit pipi: zoom in/out kecil */
+  @keyframes pinch {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.15); }
+  }
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Cozy pastel palette */
+  --blush: oklch(0.93 0.04 20);        /* soft pink */
+  --rose: oklch(0.78 0.09 15);         /* warm rose */
+  --cream: oklch(0.98 0.02 80);        /* creamy off-white */
+  --sky: oklch(0.9 0.05 230);          /* baby blue */
+  --mint: oklch(0.9 0.06 160);         /* gentle mint */
+  --lavender: oklch(0.88 0.06 300);    /* soft lavender */
+  --butter: oklch(0.95 0.07 90);       /* light butter */
+
+  --background: oklch(0.985 0.01 60);  /* warm cream backdrop */
+  --foreground: oklch(0.32 0.04 20);   /* deep cocoa text */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.32 0.04 20);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.32 0.04 20);
+
+  --primary: oklch(0.78 0.11 15);      /* warm rose */
+  --primary-foreground: oklch(0.99 0.005 60);
+
+  --secondary: oklch(0.92 0.04 320);   /* lavender pink */
+  --secondary-foreground: oklch(0.32 0.04 20);
+
+  --muted: oklch(0.95 0.02 40);
+  --muted-foreground: oklch(0.5 0.03 30);
+
+  --accent: oklch(0.9 0.07 30);        /* peach */
+  --accent-foreground: oklch(0.32 0.04 20);
+
+  --destructive: oklch(0.7 0.18 25);
+  --destructive-foreground: oklch(0.99 0.005 60);
+
+  --border: oklch(0.9 0.02 40);
+  --input: oklch(0.93 0.02 40);
+  --ring: oklch(0.78 0.11 15);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body, #root { height: 100%; }
+  body {
+    background: radial-gradient(ellipse at top left, oklch(0.96 0.04 340) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, oklch(0.95 0.05 220) 0%, transparent 50%),
+                var(--color-background);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
+}
+
+/* Reusable utility classes */
+@layer components {
+  .glass-card {
+    background: color-mix(in oklab, white 75%, transparent);
+    backdrop-filter: blur(14px);
+    border: 1px solid color-mix(in oklab, white 60%, transparent);
+    box-shadow: 0 8px 32px -12px color-mix(in oklab, var(--rose) 25%, transparent);
+  }
+  .soft-shadow {
+    box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--rose) 30%, transparent);
+  }
+  .game-tile {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+  .game-tile:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 18px 40px -12px color-mix(in oklab, var(--rose) 45%, transparent);
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--rose) 40%, transparent);
+    border-radius: 999px;
+  }
+  /* Kelas helper untuk animasi */
+  .pet-jump { animation: pet-jump-kf 0.6s ease-out; }
+  .anim-hug-in { animation: hug-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .anim-pat { animation: pat 0.6s ease-in-out infinite; transform-origin: 50% 100%; }
+  .anim-pinch { animation: pinch 0.7s ease-in-out infinite; transform-origin: center; }
+}
+
+/* =============================================================
+   Fullscreen helper — saat element masuk fullscreen API,
+   buang background blush biar game keliatan rapi.
+   ============================================================= */
+:fullscreen {
+  background: var(--background);
+  padding: 0;
+}
+:fullscreen iframe {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+}
+:fullscreen > div {
+  padding-top: 0 !important;
+  height: 100vh;
+  max-height: 100vh;
+}

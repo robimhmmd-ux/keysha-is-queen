@@ -1,0 +1,20 @@
+{
+  "name": "uno",
+  "version": "1.1.0",
+  "description": "Multiplayer Websocket Server for UNO game",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [
+    "uno"
+  ],
+  "author": "mrozio13pl",
+  "repository": "github.com/mrozio13pl/uno",
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "ws": "^8.12.0"
+  }
+}
